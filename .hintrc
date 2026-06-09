@@ -5,6 +5,12 @@
   "hints": {
     "typescript-config/is-valid": "off",
     "axe/structure": "off",
-    "axe/forms": "off"
+    "axe/forms": "off",
+    "axe/name-role-value": [
+      "default",
+      {
+        "button-name": "off"
+      }
+    ]
   }
 }

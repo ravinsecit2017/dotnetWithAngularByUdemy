@@ -1,8 +1,10 @@
 using API.Data;
 using API.Entities;
+using API.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+
 namespace API.Controllers
 {
     public class MembersController(AppDbContext context): BaseApiController
@@ -22,5 +24,6 @@ namespace API.Controllers
             if (member == null) return NotFound();
             return member;
         }
+
     }
 }
