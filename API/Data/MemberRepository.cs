@@ -11,18 +11,18 @@ public class MemberRepository(AppDbContext context) : IMemberRepository
         return await context.Members.FindAsync(id);
     }
 
-//    public async Task<IReadOnlyList<Member>> GetMembersAsync()
-//     {
-//         return await context.Members.ToListAsync();
-//     }
+   public async Task<IReadOnlyList<Member>> GetMembersAsync()
+    {
+        return await context.Members.ToListAsync();
+    }
 
-//     public async Task<IReadOnlyList<Photo>> GetPhotosForMembersAsync(string memberId)
-//     {
-//         return await context.Photos
-//             .Where(x => x.Id == memberId)
-//             .SelectMany(x => x.Member.Photos)
-//             .ToListAsync();
-//     }
+    public async Task<IReadOnlyList<Photo>> GetPhotosForMembersAsync(string memberId)
+    {
+        return await context.Members
+            .Where(x => x.Id == memberId)
+            .SelectMany(x => x.Photos)
+            .ToListAsync();
+    }
 
     public void Update(Member member)
     {
@@ -34,13 +34,13 @@ public class MemberRepository(AppDbContext context) : IMemberRepository
         throw new NotImplementedException();
     }
 
-    public Task<IReadOnlyList<Member>> GetMembersAsync()
-    {
-        throw new NotImplementedException();
-    }
+    // public Task<IReadOnlyList<Member>> GetMembersAsync()
+    // {
+    //     throw new NotImplementedException();
+    // }
 
-    public Task<IReadOnlyList<Photo>> GetPhotosForMembersAsync(string memberId)
-    {
-        throw new NotImplementedException();
-    }
+    // public Task<IReadOnlyList<Photo>> GetPhotosForMembersAsync(string memberId)
+    // {
+    //     throw new NotImplementedException();
+    // }
 }
