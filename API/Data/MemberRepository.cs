@@ -15,6 +15,7 @@ public class MemberRepository(AppDbContext context) : IMemberRepository
     {
         return await context.Members
             .Include(x => x.User)
+            .Include(x => x.Photos)
             .SingleOrDefaultAsync(x => x.Id == id);
     }
 
@@ -31,9 +32,9 @@ public class MemberRepository(AppDbContext context) : IMemberRepository
             .ToListAsync();
     }
 
-    public async Task<bool> SaveAllAsync()
+     public async Task<bool> SaveAllAsync()
     {
-        throw new NotImplementedException();
+        return await context.SaveChangesAsync() > 0;
     }
 
     public void Update(Member member)
