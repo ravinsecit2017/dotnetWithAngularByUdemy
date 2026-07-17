@@ -13,4 +13,9 @@ public class RegisterDto
     [Required]
     [MinLength(4)]
     public required string Password { get; set; } = "";
+
+    [Required] public required string Gender { get; set; } = string.Empty;
+    [Required] public required string City { get; set; } = string.Empty;
+    [Required] public required string Country { get; set; } = string.Empty;
+    [Required] public required DateOnly DateOfBirth { get; set; }
 }
